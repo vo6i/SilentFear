@@ -1,3 +1,7 @@
+<p align="center">
+  <img alt="//いろんな方と繋がりたい Telegram Bot" src="https://github.com/vo6i/SilentFear/blob/main/6798bcd151f541819a67b2db0f5c6adf.gif" />
+</p>
+
 # SilentFear
 HTML 5 Game Made with Unity 6 66. This is horrible game survival, you last human in the world of Zombies 🚸
 ![](https://github.com/vo6i/SilentFear/blob/main/6798bcd151f541819a67b2db0f5c6adf.gif) 
