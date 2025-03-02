@@ -20,6 +20,19 @@
       .then(response => response.json())
       .then(json => console.log(json))</script>
   <script src="https://gist.github.com/vo6i/3c910515588a2ec3c264f5e6f53914f9.js"></script>
+  <div id="gamemonetize-video"></div>
+<script type="text/javascript">
+   window.VIDEO_OPTIONS = {
+       gameid : "kl1jn8oiq2ah7pzb9n3oxnco25smwc2b",
+       width  : "100%",
+       height : "480px",
+       color  : "#3f007e"
+   };
+   (function (a, b, c) {
+      var d = a.getElementsByTagName(b)[0];
+      a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js?v=" + Date.now(), d.parentNode.insertBefore(a, d))
+   })(document, "script", "gamemonetize-video-api"); 
+</script>  
 <body ><iframe src="https://html5.gamemonetize.com/038had1kh7g156y93gko2jlh0jit1y2p/" style="height:600px;width:100%;" title="Iframe Example"></iframe>
 </body>
   <script src="https://gist.github.com/vo6i/a5cef886f39207c6541bd3c09f048dcc.js"></script>
