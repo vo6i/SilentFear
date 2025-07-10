@@ -1,187 +1,227 @@
 <!DOCTYPE html>
-<html>
-  <head><iframe src="https://html5.gamemonetize.games/kl1jn8oiq2ah7pzb9n3oxnco25smwc2b/" style="height:600px;width:100%;" title="Iframe Example"></iframe>
-    <div id="gamemonetize-video"></div>
-<script type="text/javascript">
-   window.VIDEO_OPTIONS = {
-       gameid : "kl1jn8oiq2ah7pzb9n3oxnco25smwc2b",
-       width  : "100%",
-       height : "480px",
-       color  : "#3f007e"
-   };
-   (function (a, b, c) {
-      var d = a.getElementsByTagName(b)[0];
-      a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js?v=" + Date.now(), d.parentNode.insertBefore(a, d))
-   })(document, "script", "gamemonetize-video-api"); 
-</script>  
-    <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя Игра с Озвучкой</title>
+    <style>
+        /* Стили для кнопки и статуса - можно оставить из предыдущего примера */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px; /* Добавлен отступ сверху */
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        button:disabled {
+            background-color: #a0c8ff;
+            cursor: not-allowed;
+        }
+        #status {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #555;
+            text-align: center;
+        }
+        iframe {
+            margin-bottom: 20px; /* Отступ между iframe */
+        }
+    </style>
 
-   ym(98977112, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/98977112" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter --></head>
-  <script>fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => console.log(json))</script>
-  <script src="https://gist.github.com/vo6i/3c910515588a2ec3c264f5e6f53914f9.js"></script>
-  <div id="gamemonetize-video"></div>
-<script type="text/javascript">
-   window.VIDEO_OPTIONS = {
-       gameid : "kl1jn8oiq2ah7pzb9n3oxnco25smwc2b",
-       width  : "100%",
-       height : "480px",
-       color  : "#3f007e"
-   };
-   (function (a, b, c) {
-      var d = a.getElementsByTagName(b)[0];
-      a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js?v=" + Date.now(), d.parentNode.insertBefore(a, d))
-   })(document, "script", "gamemonetize-video-api"); 
-</script>  
-<body >
-  <div class="tenor-gif-embed" data-postid="9190944328185567119" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/dclxviclan-comics-awww-eww-cartoon-gif-9190944328185567119">Dclxviclan Comics Sticker</a>from <a href="https://tenor.com/search/dclxviclan-stickers">Dclxviclan Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-  <div id="gamemonetize-video"></div>
-<script type="text/javascript">
-   window.VIDEO_OPTIONS = {
-       gameid : "038had1kh7g156y93gko2jlh0jit1y2p",
-       width  : "100%",
-       height : "480px",
-       color  : "#3f007e"
-   };
-   (function (a, b, c) {
-      var d = a.getElementsByTagName(b)[0];
-      a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js?v=" + Date.now(), d.parentNode.insertBefore(a, d))
-   })(document, "script", "gamemonetize-video-api"); 
-</script>  
-  <iframe src="https://html5.gamemonetize.games/038had1kh7g156y93gko2jlh0jit1y2p/" style="height:600px;width:100%;" title="Iframe Example"></iframe>
-  <h1>Web Speech API Пример</h1>
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(98977112, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/98977112" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    </head>
+<body>
+
+    <iframe src="https://html5.gamemonetize.games/kl1jn8oiq2ah7pzb9n3oxnco25smwc2b/" style="height:600px;width:100%;" title="Game 1"></iframe>
+
+    <div id="gamemonetize-video-1"></div>
+
+    <div class="tenor-gif-embed" data-postid="9190944328185567119" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+        <a href="https://tenor.com/view/dclxviclan-comics-awww-eww-cartoon-gif-9190944328185567119">Dclxviclan Comics Sticker</a>from <a href="https://tenor.com/search/dclxviclan-stickers">Dclxviclan Stickers</a>
+    </div>
+
+    <iframe src="https://html5.gamemonetize.games/038had1kh7g156y93gko2jlh0jit1y2p/" style="height:600px;width:100%;" title="Game 2"></iframe>
+
+    <h1>Web Speech API Пример</h1>
     <button id="speakButton">Озвучить случайное предложение</button>
-    <p id="status">Ожидание...</p>
-</body>
- ‎
-‎
-‎    <script>
-‎        const statusElement = document.getElementById('status');
-‎        const speakButton = document.getElementById('speakButton');
-‎        let voicesLoaded = false; // Флаг для отслеживания загрузки голосов
-‎
-‎        // Функция для озвучивания случайного предложения
-‎        function speakRandomSentence() {
-‎            const sentences = [
-‎                "The quick brown fox jumps over the lazy dog.",
-‎                "JavaScript is a versatile language.",
-‎                "This is a a random sentence.",
-‎                "Hello, world!",
-‎                "Привет, мир! Это случайное предложение на русском языке.",
-‎                "Юнити - это мощный игровой движок.",
+    <p id="status">Инициализация...</p>
+
+    <script type="text/javascript">
+       window.VIDEO_OPTIONS = {
+           gameid : "kl1jn8oiq2ah7pzb9n3oxnco25smwc2b", // Убедитесь, что это ID игры для первого блока
+           width  : "100%",
+           height : "480px",
+           color  : "#3f007e"
+       };
+       (function (a, b, c) {
+          var d = a.getElementsByTagName(b)[0];
+          a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js?v=" + Date.now(), d.parentNode.insertBefore(a, d))
+       })(document, "script", "gamemonetize-video-api-1"); // Изменен ID для уникальности
+    </script>
+    
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(json => console.log(json));
+    </script>
+    
+    <script src="https://gist.github.com/vo6i/3c910515588a2ec3c264f5e6f53914f9.js"></script>
+    <script src="https://gist.github.com/vo6i/a5cef886f39207c6541bd3c09f048dcc.js"></script>
+
+    <script>
+        const statusElement = document.getElementById('status');
+        const speakButton = document.getElementById('speakButton');
+        let voicesLoaded = false;
+
+        function speakRandomSentence() {
+            console.log("speakRandomSentence() called.");
+
+            const sentences = [
+                "The quick brown fox jumps over the lazy dog.",
+                "JavaScript is a versatile language.",
+                "This is a random sentence.",
+                "Hello, world!",
+                "Привет, мир! Это случайное предложение на русском языке.",
+                "Юнити - это мощный игровой движок.",
                 " Silent Fear game by dclxviclan creator Clear Office "
-‎            ];
-‎
-‎            const randomIndex = Math.floor(Math.random() * sentences.length);
-‎            const randomSentence = sentences[randomIndex];
-‎
-‎            // Создаем объект SpeechSynthesisUtterance
-‎            const utterance = new SpeechSynthesisUtterance(randomSentence);
-‎
-‎            // --- Опционально: Настройка голоса и языка ---
-‎            // Важно: getVoices() может быть пустым до события 'voiceschanged'
-‎            // Или если браузер не предоставляет голосов.
-‎            const voices = window.speechSynthesis.getVoices();
-‎            if (voices.length > 0) {
-‎                // Попробуйте найти русский голос, если он нужен для русских предложений
-‎                const russianVoice = voices.find(voice => voice.lang === 'ru-RU');
-‎                if (russianVoice) {
-‎                    utterance.voice = russianVoice;
-‎                    utterance.lang = 'ru-RU';
-‎                } else {
-‎                    // Если русского нет, используйте первый доступный и установите его язык
-‎                    utterance.voice = voices[0];
-‎                    utterance.lang = voices[0].lang; // Используем язык выбранного голоса
-‎                }
-‎            } else {
-‎                // Если голосов нет вообще, установите язык по умолчанию
-‎                utterance.lang = 'en-US'; // Или 'ru-RU' если большинство предложений русские
-‎                console.warn("No voices found. Using default browser voice.");
-‎            }
-‎
-‎            // Дополнительные настройки
-‎            utterance.pitch = 1; // Высота тона (0.1 to 2)
-‎            utterance.rate = 1;  // Скорость речи (0.1 to 10)
-‎
-‎            // Обработчики событий для отладки
-‎            utterance.onstart = () => {
-‎                statusElement.textContent = `Озвучиваю: "${randomSentence}"`;
-‎                speakButton.disabled = true; // Отключаем кнопку во время озвучки
-‎            };
-‎            utterance.onend = () => {
-‎                statusElement.textContent = `Озвучка завершена.`;
-‎                speakButton.disabled = false; // Включаем кнопку после завершения
-‎            };
-‎            utterance.onerror = (event) => {
-‎                statusElement.textContent = `Ошибка озвучки: ${event.error}`;
-‎                console.error("SpeechSynthesisUtterance error:", event);
-‎                speakButton.disabled = false; // Включаем кнопку при ошибке
-‎            };
-‎
-‎            // Запускаем озвучивание
-‎            window.speechSynthesis.speak(utterance);
-‎        }
-‎
-‎        // --- Управление загрузкой голосов и активацией кнопки ---
-‎
-‎        // Обработчик события, когда голоса загружены
-‎        window.speechSynthesis.addEventListener('voiceschanged', () => {
-‎            voicesLoaded = true;
-‎            speakButton.disabled = false; // Активируем кнопку, когда голоса доступны
-‎            statusElement.textContent = "Голоса загружены. Нажмите кнопку.";
-‎            console.log("Voices loaded:", window.speechSynthesis.getVoices().map(v => v.name));
-‎        });
-‎
-‎        // Инициализация при загрузке страницы
-‎        document.addEventListener('DOMContentLoaded', () => {
-‎            // Проверяем, доступны ли голоса сразу (может быть, если они уже кэшированы)
-‎            if (window.speechSynthesis.getVoices().length > 0) {
-‎                voicesLoaded = true;
-‎                speakButton.disabled = false;
-‎                statusElement.textContent = "Голоса доступны. Нажмите кнопку.";
-‎                console.log("Voices available on DOMContentLoaded:", window.speechSynthesis.getVoices().map(v => v.name));
-‎            } else {
-‎                // Если нет, ждем события 'voiceschanged'
-‎                speakButton.disabled = true; // Отключаем кнопку, пока голоса не загрузятся
-‎                statusElement.textContent = "Загрузка голосов...";
-‎                console.log("Waiting for voices to load...");
-‎            }
-‎        });
-‎
-‎        // Привязываем функцию к кнопке
-‎        speakButton.addEventListener('click', () => {
-‎            if (voicesLoaded) {
-‎                speakRandomSentence();
-‎            } else {
-‎                statusElement.textContent = "Голоса еще не загружены. Пожалуйста, подождите.";
-‎                console.warn("Attempted to speak before voices were loaded.");
-‎            }
-‎        });
-‎
-‎        // Дополнительная проверка, если пользователь пытается нажать кнопку до загрузки голосов
-‎        if (!('speechSynthesis' in window)) {
-‎            statusElement.textContent = "Web Speech API не поддерживается вашим браузером.";
-‎            speakButton.disabled = true;
-‎            console.error("Web Speech API not supported in this browser.");
-‎        }
-‎    </script>
-‎
-‎
-  <script src="https://gist.github.com/vo6i/a5cef886f39207c6541bd3c09f048dcc.js"></script>
+            ];
+
+            const randomIndex = Math.floor(Math.random() * sentences.length);
+            const randomSentence = sentences[randomIndex];
+
+            const utterance = new SpeechSynthesisUtterance(randomSentence);
+
+            const voices = window.speechSynthesis.getVoices();
+            console.log("Available voices when speaking:", voices.map(v => v.name + " (" + v.lang + ")"));
+
+            if (voices.length > 0) {
+                const russianVoice = voices.find(voice => voice.lang === 'ru-RU');
+                if (russianVoice) {
+                    utterance.voice = russianVoice;
+                    utterance.lang = 'ru-RU';
+                    console.log("Using Russian voice:", russianVoice.name);
+                } else {
+                    utterance.voice = voices[0];
+                    utterance.lang = voices[0].lang;
+                    console.warn("Russian voice not found. Using default available voice:", voices[0].name, "with lang:", voices[0].lang);
+                }
+            } else {
+                utterance.lang = 'en-US';
+                console.warn("No voices found at all. Using default browser voice with lang 'en-US'.");
+            }
+
+            utterance.pitch = 1;
+            utterance.rate = 1;
+
+            utterance.onstart = () => {
+                statusElement.textContent = `Озвучиваю: "${randomSentence}"`;
+                speakButton.disabled = true;
+                console.log("Speech started.");
+            };
+            utterance.onend = () => {
+                statusElement.textContent = `Озвучка завершена.`;
+                speakButton.disabled = false;
+                console.log("Speech ended.");
+            };
+            utterance.onerror = (event) => {
+                statusElement.textContent = `Ошибка озвучки: ${event.error}. Проверьте консоль.`;
+                console.error("SpeechSynthesisUtterance error:", event);
+                speakButton.disabled = false;
+            };
+
+            if (window.speechSynthesis.speaking) {
+                console.warn("SpeechSynthesis is already speaking. Aborting new utterance.");
+                statusElement.textContent = "Уже говорю, подождите.";
+                speakButton.disabled = false;
+                return;
+            }
+            if (window.speechSynthesis.pending) {
+                console.warn("SpeechSynthesis has pending utterances. Aborting new utterance.");
+                statusElement.textContent = "Есть очередь озвучки, подождите.";
+                speakButton.disabled = false;
+                return;
+            }
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        window.speechSynthesis.addEventListener('voiceschanged', () => {
+            voicesLoaded = true;
+            speakButton.disabled = false;
+            statusElement.textContent = "Голоса загружены. Нажмите кнопку.";
+            console.log("Event 'voiceschanged' fired. Voices loaded:", window.speechSynthesis.getVoices().map(v => v.name + " (" + v.lang + ")"));
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOMContentLoaded fired.");
+            if (!('speechSynthesis' in window)) {
+                statusElement.textContent = "Web Speech API не поддерживается вашим браузером.";
+                speakButton.disabled = true;
+                console.error("Web Speech API not supported in this browser.");
+                return;
+            }
+
+            if (window.speechSynthesis.getVoices().length > 0) {
+                voicesLoaded = true;
+                speakButton.disabled = false;
+                statusElement.textContent = "Голоса доступны. Нажмите кнопку.";
+                console.log("Voices available on DOMContentLoaded:", window.speechSynthesis.getVoices().map(v => v.name + " (" + v.lang + ")"));
+            } else {
+                speakButton.disabled = true;
+                statusElement.textContent = "Загрузка голосов...";
+                console.log("Waiting for 'voiceschanged' event...");
+            }
+        });
+
+        speakButton.addEventListener('click', () => {
+            console.log("Button clicked. voicesLoaded:", voicesLoaded);
+            if (voicesLoaded) {
+                speakRandomSentence();
+            } else {
+                statusElement.textContent = "Голоса еще не загружены. Пожалуйста, подождите.";
+                console.warn("Attempted to speak before voices were loaded.");
+            }
+        });
+    </script>
+
+</body>
 </html>
-
-
