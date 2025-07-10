@@ -130,24 +130,10 @@
 
             const utterance = new SpeechSynthesisUtterance(randomSentence);
 
-            const voices = window.speechSynthesis.getVoices();
-            console.log("Available voices when speaking:", voices.map(v => v.name + " (" + v.lang + ")"));
-
-            if (voices.length > 0) {
-                const russianVoice = voices.find(voice => voice.lang === 'ru-RU');
-                if (russianVoice) {
-                    utterance.voice = russianVoice;
-                    utterance.lang = 'ru-RU';
-                    console.log("Using Russian voice:", russianVoice.name);
-                } else {
-                    utterance.voice = voices[0];
-                    utterance.lang = voices[0].lang;
-                    console.warn("Russian voice not found. Using default available voice:", voices[0].name, "with lang:", voices[0].lang);
-                }
-            } else {
-                utterance.lang = 'en-US';
-                console.warn("No voices found at all. Using default browser voice with lang 'en-US'.");
-            }
+            
+            utterance.lang = 'en-US';
+            console.warn("No voices found at all. Using default browser voice with lang 'en-US'.");
+            
 
             utterance.pitch = 1;
             utterance.rate = 1;
