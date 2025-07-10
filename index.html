@@ -64,6 +64,41 @@
 </script>  
   <iframe src="https://html5.gamemonetize.games/038had1kh7g156y93gko2jlh0jit1y2p/" style="height:600px;width:100%;" title="Iframe Example"></iframe>
 </body>
+ <script>
+   function speakRandomSentence() {
+  const sentences = [
+    "The quick brown fox jumps over the lazy dog.",
+    "JavaScript is a versatile language.",
+    "This is a random sentence.",
+    "Hello, world!",
+    " Silent Fear game by dclxviclan ", 
+
+  ];
+
+  const randomIndex = Math.floor(Math.random() * sentences.length);
+  const randomSentence = sentences[randomIndex];
+
+  const utterance = new SpeechSynthesisUtterance(randomSentence);
+
+  // Optional: Select a voice
+  const voices = window.speechSynthesis.getVoices();
+  if (voices.length > 0) {
+    utterance.voice = voices[0]; // Select the first available voice
+  }
+
+  window.speechSynthesis.speak(utterance);
+}
+
+// Example usage:
+// You might need to wait for the voices to be loaded before calling this function
+if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.addEventListener('voiceschanged', () => {
+        speakRandomSentence();
+    });
+} else {
+    speakRandomSentence();
+   }
+ </script>
   <script src="https://gist.github.com/vo6i/a5cef886f39207c6541bd3c09f048dcc.js"></script>
 </html>
 
