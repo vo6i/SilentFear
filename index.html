@@ -63,42 +63,124 @@
    })(document, "script", "gamemonetize-video-api"); 
 </script>  
   <iframe src="https://html5.gamemonetize.games/038had1kh7g156y93gko2jlh0jit1y2p/" style="height:600px;width:100%;" title="Iframe Example"></iframe>
+  <h1>Web Speech API Пример</h1>
+    <button id="speakButton">Озвучить случайное предложение</button>
+    <p id="status">Ожидание...</p>
 </body>
- <script>
-   function speakRandomSentence() {
-  const sentences = [
-    "The quick brown fox jumps over the lazy dog.",
-    "JavaScript is a versatile language.",
-    "This is a random sentence.",
-    "Hello, world!",
-    " Silent Fear game by dclxviclan ", 
-
-  ];
-
-  const randomIndex = Math.floor(Math.random() * sentences.length);
-  const randomSentence = sentences[randomIndex];
-
-  const utterance = new SpeechSynthesisUtterance(randomSentence);
-
-  // Optional: Select a voice
-  const voices = window.speechSynthesis.getVoices();
-  if (voices.length > 0) {
-    utterance.voice = voices[0]; // Select the first available voice
-  }
-
-  window.speechSynthesis.speak(utterance);
-}
-
-// Example usage:
-// You might need to wait for the voices to be loaded before calling this function
-if (window.speechSynthesis.getVoices().length === 0) {
-    window.speechSynthesis.addEventListener('voiceschanged', () => {
-        speakRandomSentence();
-    });
-} else {
-    speakRandomSentence();
-   }
- </script>
+ ‎
+‎
+‎    <script>
+‎        const statusElement = document.getElementById('status');
+‎        const speakButton = document.getElementById('speakButton');
+‎        let voicesLoaded = false; // Флаг для отслеживания загрузки голосов
+‎
+‎        // Функция для озвучивания случайного предложения
+‎        function speakRandomSentence() {
+‎            const sentences = [
+‎                "The quick brown fox jumps over the lazy dog.",
+‎                "JavaScript is a versatile language.",
+‎                "This is a a random sentence.",
+‎                "Hello, world!",
+‎                "Привет, мир! Это случайное предложение на русском языке.",
+‎                "Юнити - это мощный игровой движок.",
+                " Silent Fear game by dclxviclan creator Clear Office "
+‎            ];
+‎
+‎            const randomIndex = Math.floor(Math.random() * sentences.length);
+‎            const randomSentence = sentences[randomIndex];
+‎
+‎            // Создаем объект SpeechSynthesisUtterance
+‎            const utterance = new SpeechSynthesisUtterance(randomSentence);
+‎
+‎            // --- Опционально: Настройка голоса и языка ---
+‎            // Важно: getVoices() может быть пустым до события 'voiceschanged'
+‎            // Или если браузер не предоставляет голосов.
+‎            const voices = window.speechSynthesis.getVoices();
+‎            if (voices.length > 0) {
+‎                // Попробуйте найти русский голос, если он нужен для русских предложений
+‎                const russianVoice = voices.find(voice => voice.lang === 'ru-RU');
+‎                if (russianVoice) {
+‎                    utterance.voice = russianVoice;
+‎                    utterance.lang = 'ru-RU';
+‎                } else {
+‎                    // Если русского нет, используйте первый доступный и установите его язык
+‎                    utterance.voice = voices[0];
+‎                    utterance.lang = voices[0].lang; // Используем язык выбранного голоса
+‎                }
+‎            } else {
+‎                // Если голосов нет вообще, установите язык по умолчанию
+‎                utterance.lang = 'en-US'; // Или 'ru-RU' если большинство предложений русские
+‎                console.warn("No voices found. Using default browser voice.");
+‎            }
+‎
+‎            // Дополнительные настройки
+‎            utterance.pitch = 1; // Высота тона (0.1 to 2)
+‎            utterance.rate = 1;  // Скорость речи (0.1 to 10)
+‎
+‎            // Обработчики событий для отладки
+‎            utterance.onstart = () => {
+‎                statusElement.textContent = `Озвучиваю: "${randomSentence}"`;
+‎                speakButton.disabled = true; // Отключаем кнопку во время озвучки
+‎            };
+‎            utterance.onend = () => {
+‎                statusElement.textContent = `Озвучка завершена.`;
+‎                speakButton.disabled = false; // Включаем кнопку после завершения
+‎            };
+‎            utterance.onerror = (event) => {
+‎                statusElement.textContent = `Ошибка озвучки: ${event.error}`;
+‎                console.error("SpeechSynthesisUtterance error:", event);
+‎                speakButton.disabled = false; // Включаем кнопку при ошибке
+‎            };
+‎
+‎            // Запускаем озвучивание
+‎            window.speechSynthesis.speak(utterance);
+‎        }
+‎
+‎        // --- Управление загрузкой голосов и активацией кнопки ---
+‎
+‎        // Обработчик события, когда голоса загружены
+‎        window.speechSynthesis.addEventListener('voiceschanged', () => {
+‎            voicesLoaded = true;
+‎            speakButton.disabled = false; // Активируем кнопку, когда голоса доступны
+‎            statusElement.textContent = "Голоса загружены. Нажмите кнопку.";
+‎            console.log("Voices loaded:", window.speechSynthesis.getVoices().map(v => v.name));
+‎        });
+‎
+‎        // Инициализация при загрузке страницы
+‎        document.addEventListener('DOMContentLoaded', () => {
+‎            // Проверяем, доступны ли голоса сразу (может быть, если они уже кэшированы)
+‎            if (window.speechSynthesis.getVoices().length > 0) {
+‎                voicesLoaded = true;
+‎                speakButton.disabled = false;
+‎                statusElement.textContent = "Голоса доступны. Нажмите кнопку.";
+‎                console.log("Voices available on DOMContentLoaded:", window.speechSynthesis.getVoices().map(v => v.name));
+‎            } else {
+‎                // Если нет, ждем события 'voiceschanged'
+‎                speakButton.disabled = true; // Отключаем кнопку, пока голоса не загрузятся
+‎                statusElement.textContent = "Загрузка голосов...";
+‎                console.log("Waiting for voices to load...");
+‎            }
+‎        });
+‎
+‎        // Привязываем функцию к кнопке
+‎        speakButton.addEventListener('click', () => {
+‎            if (voicesLoaded) {
+‎                speakRandomSentence();
+‎            } else {
+‎                statusElement.textContent = "Голоса еще не загружены. Пожалуйста, подождите.";
+‎                console.warn("Attempted to speak before voices were loaded.");
+‎            }
+‎        });
+‎
+‎        // Дополнительная проверка, если пользователь пытается нажать кнопку до загрузки голосов
+‎        if (!('speechSynthesis' in window)) {
+‎            statusElement.textContent = "Web Speech API не поддерживается вашим браузером.";
+‎            speakButton.disabled = true;
+‎            console.error("Web Speech API not supported in this browser.");
+‎        }
+‎    </script>
+‎
+‎
   <script src="https://gist.github.com/vo6i/a5cef886f39207c6541bd3c09f048dcc.js"></script>
 </html>
 
